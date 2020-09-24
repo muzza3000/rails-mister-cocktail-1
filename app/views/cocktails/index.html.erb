@@ -1,0 +1,6 @@
+<h1>Cocktails#index</h1>
+
+<% @cocktails.each do |cocktail| %>
+  <h5><%= link_to cocktail.name, cocktail_path(cocktail) %></h5>
+  <%= image_tag(cocktail.photo) if cocktail.photo.attached? %>
+<% end %>

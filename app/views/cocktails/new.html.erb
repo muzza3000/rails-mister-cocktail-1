@@ -1,0 +1,14 @@
+<%= simple_form_for @cocktail do |f| %>
+    <%= f.input :name %>
+    <%= f.input :photo, as: :file %>
+  <h3>Ingredients and amounts</h3>
+  <div>
+    <%= f.fields_for :doses do |dose| %>
+      <%= render 'dose_fields', f: dose %>
+    <% end %>
+    <div>
+      <%= link_to_add_association 'add amount', f, :doses %>
+    </div>
+  </div>
+  <%= f.submit %>
+<% end %>
