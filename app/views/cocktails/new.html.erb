@@ -1,5 +1,6 @@
+<h1>Add a new cocktail</h1>
 <%= simple_form_for @cocktail do |f| %>
-    <%= f.input :name %>
+    <%= f.input :name, placeholder: 'Name' %>
     <%= f.input :photo, as: :file %>
   <h3>Ingredients and amounts</h3>
   <div>
@@ -7,8 +8,8 @@
       <%= render 'dose_fields', f: dose %>
     <% end %>
     <div>
-      <%= link_to_add_association 'add amount', f, :doses %>
+      <%= link_to_add_association 'Add amount', f, :doses %>
     </div>
   </div>
-  <%= f.submit %>
+  <%= f.submit class: 'btn btn-primary' %>
 <% end %>
