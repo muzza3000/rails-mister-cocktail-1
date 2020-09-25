@@ -4,7 +4,7 @@ class CocktailsController < ApplicationController
     @search = params['search_form']
       if @search.present?
         @term = @search['search_term']
-        @cocktails = Cocktail.with_name_or_ingredient(@term)
+        @cocktails = Cocktail.global_search(@term)
       end
   end
 

@@ -1,0 +1,11 @@
+<h1>Cocktails#index</h1>
+
+<% @cocktails.each do |cocktail| %>
+  <h5><%= link_to cocktail.name, cocktail_path(cocktail) %></h5>
+<%= cl_image_tag cocktail.photo.key, height: 300, width: 400, crop: :fill %>
+<% end %>
+
+<%= simple_form_for(SearchForm.new, url: cocktails_path, method: :get) do |f| %>
+<%= f.input :search_term %>
+<%= f.submit %>
+<% end %>
